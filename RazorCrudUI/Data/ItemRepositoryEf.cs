@@ -23,7 +23,7 @@ namespace RazorCrudUI.Data
         }
         public IEnumerable<ItemModel> GetItems(String item)
         {
-            return _context.Items.Where(s => s.Name.Equals(item)).ToList();
+            return _context.Items.Where(s => s.Name.Contains(item)).ToList();
         }
 
 
@@ -42,18 +42,20 @@ namespace RazorCrudUI.Data
         public void InsertItem(ItemModel item)
         {
             _context.Items.Add(item);
+            //await _context.SaveChangesAsync();
         }
        public void DeleteItem(int id)
         {
             var item = _context.Items.FirstOrDefault(c => c.Id == id);
             _context.Items.Remove(item);
+          //  _context.SaveChangesAsync();
         }
         public bool UpdateItem(ItemModel item)
         {
             _context.Attach(item).State = EntityState.Modified;
             try
             {
-                _context.SaveChanges();
+                _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -69,8 +71,12 @@ namespace RazorCrudUI.Data
         }
         public async Task<IEnumerable<ItemModel>> GetItemsAsync(string? filter)
         {
-            return await _context.Items.Where(s => s.Name.Equals(filter)).ToListAsync();
-            
+            {
+                if (string.IsNullOrEmpty(filter))
+                    return await GetItemsAsync();
+                return await _context.Items.Where(s => s.Name.Contains(filter)).ToListAsync();
+
+            }
         }
         public async Task<ItemModel> GetItemByIdAsync(int id)
         {
@@ -79,11 +85,13 @@ namespace RazorCrudUI.Data
         public async Task AddItemAsync(ItemModel item)
         {
             await _context.Items.AddAsync(item);
+            await _context.SaveChangesAsync();
         }
         public async Task DeleteItemAsync(int id)
         {
             var item =await _context.Items.FirstOrDefaultAsync(c => c.Id == id);
              _context.Items.Remove(item);
+            await _context.SaveChangesAsync();
         }
         public async Task<bool> UpdateItemAsync(ItemModel item)
         {
@@ -97,6 +105,7 @@ namespace RazorCrudUI.Data
                 return false;
             }
             return true;
+            await _context.SaveChangesAsync();
         }
     }
 }

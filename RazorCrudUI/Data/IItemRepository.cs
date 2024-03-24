@@ -18,7 +18,6 @@ namespace RazorCrudUI.Data
 
         void InsertItem(ItemModel item);
 
-
         void DeleteItem(int id);
 
         bool UpdateItem(ItemModel item);

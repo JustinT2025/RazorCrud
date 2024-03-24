@@ -57,7 +57,6 @@ namespace RazorCrudUI.Pages.Items
                 await _repository.UpdateItemAsync(itemmodel);
 
             }
-
             return RedirectToPage("./Index");
         }
     }
