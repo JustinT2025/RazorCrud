@@ -47,9 +47,9 @@ namespace RazorCrudUI.Pages.Items
             {
                 return Page();
             }
-            if(await _repository.UpdateItemAsync(ItemModel))
+            if (!await _repository.UpdateItemAsync(ItemModel))
             {
-                return NotFound(ModelState);
+                return NotFound();
             }
 
             

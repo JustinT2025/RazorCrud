@@ -24,6 +24,7 @@ namespace RazorCrudUI.Data
         public IEnumerable<ItemModel> GetItems(String item)
         {
             return _context.Items.Where(s => s.Name.Contains(item)).ToList();
+            
         }
 
 

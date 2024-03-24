@@ -36,7 +36,8 @@ namespace RazorCrudUI.Pages.Items
             }
 
             _repository.InsertItem(ItemModel);
-            await _repository.GetItemsAsync();
+            await _repository.AddItemAsync(ItemModel);
+            
 
             return RedirectToPage("./Index");
         }
