@@ -28,12 +28,14 @@ namespace RazorCrudUI.Pages.Items
         {
             
             
-            if (!string.IsNullOrEmpty(SearchString))
-            {
-                ItemModel = ItemModel.Where(s => s.Name.Contains(SearchString)).ToList();
-            }
+            //if (!string.IsNullOrEmpty(SearchString))
+           // {
+                //ItemModel = (await _repository.GetItemsAsync(SearchString)).ToList();
+                
+           // }
 
-            ItemModel = (IList<ItemModel>)await _repository.GetItemsAsync(SearchString);
+            ItemModel = (await _repository.GetItemsAsync(SearchString)).ToList();
+            
         }
     }
 }
