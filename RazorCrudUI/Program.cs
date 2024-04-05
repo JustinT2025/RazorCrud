@@ -1,5 +1,7 @@
+using DataMem;
 using Microsoft.EntityFrameworkCore;
 using RazorCrudUI.Data;
+using UI.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +11,9 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<ItemContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
-builder.Services.AddScoped<IItemRepository, ItemRepositoryEf>();
+//builder.Services.AddScoped<IItemRepository, ItemRepositoryEf>();
+//builder.Services.AddScoped<IItemRepository, ItemRepositoryMem>();
+builder.Services.AddSingleton<IItemRepository, ItemRepositoryMem>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using RazorCrudUI.Data;
-using RazorCrudUI.Models;
+using UI.Data;
+using UI.Models;
 
 namespace RazorCrudUI.Pages.Items
 {
@@ -35,7 +36,6 @@ namespace RazorCrudUI.Pages.Items
                 return Page();
             }
 
-            _repository.InsertItem(ItemModel);
             await _repository.AddItemAsync(ItemModel);
             
 

@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using RazorCrudUI.Data;
-using RazorCrudUI.Models;
+using UI.Data;
+using UI.Models;
 
 namespace RazorCrudUI.Pages.Items
 {

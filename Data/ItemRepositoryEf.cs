@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RazorCrudUI.Models;
 using System;
+using UI.Data;
+using UI.Models;
 
 namespace RazorCrudUI.Data
 {

@@ -1,6 +1,6 @@
-﻿using RazorCrudUI.Models;
+﻿using UI.Models;
 
-namespace RazorCrudUI.Data
+namespace UI.Data
 {
     public interface IItemRepository
     {
@@ -10,7 +10,7 @@ namespace RazorCrudUI.Data
         Task AddItemAsync(ItemModel item);
         Task DeleteItemAsync(int id);
         Task<bool> UpdateItemAsync(ItemModel item);
-        IEnumerable<ItemModel> GetItems();
+       /* IEnumerable<ItemModel> GetItems();
 
         IEnumerable<ItemModel> GetItems(string filter);
 
@@ -21,5 +21,6 @@ namespace RazorCrudUI.Data
         void DeleteItem(int id);
 
         bool UpdateItem(ItemModel item);
+       */
     }
 }

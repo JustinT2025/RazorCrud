@@ -7,15 +7,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using RazorCrudUI.Data;
-using RazorCrudUI.Models;
+using UI.Data;
+using UI.Models;
 
 namespace RazorCrudUI.Pages.Items
 {
     public class DetailsModel : PageModel
     {
-        private readonly RazorCrudUI.Data.IItemRepository _repository;
+        private readonly IItemRepository _repository;
 
-        public DetailsModel(RazorCrudUI.Data.IItemRepository repository)
+        public DetailsModel(IItemRepository repository)
         {
             _repository = repository;
         }
