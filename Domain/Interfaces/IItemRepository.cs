@@ -1,6 +1,6 @@
-﻿using UI.Models;
+﻿using Domain.Models;
 
-namespace UI.Data
+namespace Data
 {
     public interface IItemRepository
     {

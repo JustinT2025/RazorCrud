@@ -1,7 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using UI.Models;
+﻿using Domain.Models;
+using Microsoft.EntityFrameworkCore;
+//using UI.Models;
 
-namespace RazorCrudUI.Data;
+namespace RazorCrudUI.Models;
 
 public class ItemContext : DbContext
 {

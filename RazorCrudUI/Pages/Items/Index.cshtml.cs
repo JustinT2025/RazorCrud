@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Data;
+using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using RazorCrudUI.Data;
-using UI.Data;
-using UI.Models;
+//using UI.Data;
+//using UI.Models;
 
 namespace RazorCrudUI.Pages.Items
 {
@@ -21,22 +23,22 @@ namespace RazorCrudUI.Pages.Items
             _repository = repository;
         }
 
-        public IList<ItemModel> ItemModel { get;set; } = default!;
+        public IList<ItemModel> ItemModel { get; set; } = default!;
 
         [BindProperty(SupportsGet = true)]
         public string? SearchString { get; set; }
         public async Task OnGetAsync()
         {
-            
-            
-            //if (!string.IsNullOrEmpty(SearchString))
-           // {
-                //ItemModel = (await _repository.GetItemsAsync(SearchString)).ToList();
-                
-           // }
+            ItemModel = (IList<ItemModel>)await _repository.GetItemsAsync(SearchString);
 
-            ItemModel = (await _repository.GetItemsAsync(SearchString)).ToList();
-            
+            //if (!string.IsNullOrEmpty(SearchString))
+            // {
+            //ItemModel = (await _repository.GetItemsAsync(SearchString)).ToList();
+
+            // }
+
+            //ItemModel = (await _repository.GetItemsAsync(SearchString)).ToList();
+
         }
     }
 }

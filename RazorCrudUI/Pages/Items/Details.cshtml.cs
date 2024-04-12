@@ -3,12 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Data;
+using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using RazorCrudUI.Data;
-using UI.Data;
-using UI.Models;
+//using UI.Data;
 
 namespace RazorCrudUI.Pages.Items
 {
@@ -30,15 +31,15 @@ namespace RazorCrudUI.Pages.Items
                 return NotFound();
             }
 
-            var itemmodel = await _repository.GetItemByIdAsync(id.Value);
-            if (itemmodel == null)
-            {
-                return NotFound();
-            }
-            else
-            {
-                ItemModel = itemmodel;
-            }
+            //var itemmodel = await _repository.GetItemByIdAsync(id.Value);
+            //if (itemmodel == null)
+            //{
+            //    return NotFound();
+            //}
+            //else
+            //{
+            //    ItemModel = itemmodel;
+            //}
             return Page();
         }
         /*

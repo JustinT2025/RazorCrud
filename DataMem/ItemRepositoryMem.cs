@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Data;
+using Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UI.Data;
-using UI.Models;
+//using UI.Data;
+//using UI.Models;
 
 namespace DataMem
 {

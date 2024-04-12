@@ -5,11 +5,11 @@ VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI", "RazorCrudUI\UI.csproj", "{C0EF1391-AA1D-4859-B908-55B7C17D2036}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{D73B21FD-30E4-417D-8E68-D04D3D565FE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{D73B21FD-30E4-417D-8E68-D04D3D565FE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{D3E20DD6-7911-43BA-8BA2-7F3C0DEFC078}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{D3E20DD6-7911-43BA-8BA2-7F3C0DEFC078}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataMem", "DataMem\DataMem.csproj", "{E0EFFF8C-EF2D-4145-9A2A-6DD6A9D2C1A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataMem", "DataMem\DataMem.csproj", "{E0EFFF8C-EF2D-4145-9A2A-6DD6A9D2C1A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using RazorCrudUI.Data;
 using RazorCrudUI.Models;
 
 #nullable disable
@@ -12,20 +11,20 @@ using RazorCrudUI.Models;
 namespace RazorCrudUI.Migrations
 {
     [DbContext(typeof(ItemContext))]
-    [Migration("20240223171217_InitCreate")]
-    partial class InitCreate
+    [Migration("20240410170735_AddImageUrl")]
+    partial class AddImageUrl
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.2")
+                .HasAnnotation("ProductVersion", "8.0.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("RazorCrudUI.Models.ItemModel", b =>
+            modelBuilder.Entity("Domain.Models.ItemModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -43,6 +42,9 @@ namespace RazorCrudUI.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("pictureUrl")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

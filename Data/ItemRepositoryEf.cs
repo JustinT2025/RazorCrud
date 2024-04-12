@@ -1,7 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
-using UI.Data;
-using UI.Models;
+//using Domain.Data;
+//using UI.Models;
+using RazorCrudUI.Models;
+using Domain.Models;
+using Data;
 
 namespace RazorCrudUI.Data
 {

@@ -2,23 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Data;
+using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using RazorCrudUI.Data;
-using UI.Data;
-using UI.Models;
+using UI.Utilities;
+//using UI.Data;
+//using UI.Models;
 
 namespace RazorCrudUI.Pages.Items
 {
     public class EditModel : PageModel
     {
         private readonly IItemRepository _repository;
+        private readonly IWebHostEnvironment _wep;
 
-        public EditModel(IItemRepository repository)
+        public EditModel(IItemRepository repository, IWebHostEnvironment wep)
         {
             _repository = repository;
+            _wep = wep;
         }
 
         [BindProperty]
@@ -48,6 +55,18 @@ namespace RazorCrudUI.Pages.Items
             {
                 return Page();
             }
+    //        if(HttpContext.Request.Form.Count > 0)
+      //      {
+  //              FileHelper.DeleteOldImage(_wep, ItemModel);
+//                ItemModel.pictureUrl = FileHelper.UploadNewImage(_wep, HttpContext.Request.Form.Files[0]);
+            //}
+            if (!HttpContext.Request.Form.Files.IsNullOrEmpty())
+            {
+                FileHelper.DeleteOldImage(_wep, ItemModel);
+                ItemModel.pictureUrl = FileHelper.UploadNewImage(_wep,
+                    HttpContext.Request.Form.Files[0]);
+            }
+
             if (!await _repository.UpdateItemAsync(ItemModel))
             {
                 return NotFound();

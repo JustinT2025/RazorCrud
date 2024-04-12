@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace UI.Models
+namespace Domain.Models
 {
     public class ItemModel
     {
@@ -19,6 +19,7 @@ namespace UI.Models
         [Required]
         public decimal Price { get; set; }
 
+        public string? pictureUrl {  get; set; }
     }
 
 }
